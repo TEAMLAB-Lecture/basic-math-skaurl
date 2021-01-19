@@ -19,12 +19,13 @@ def get_greatest(number_list):
             greatest_number (int): parameter number_list 중 가장 큰 값
 
         Examples:
-            >>> number_list = [39, 54, 32, 11, 99]
-            >>> import basic_math as bm
-            >>> bm.get_greatest(number_list)
+            # >>> number_list = [39, 54, 32, 11, 99]
+            # >>> import basic_math as bm
+            # >>> bm.get_greatest(number_list)
             99
     """
-    greatest_number = None
+    greatest_number = sorted(number_list)[-1]
+    # 오름차순으로 정렬 후, 가장 뒤에 있는 값
     return greatest_number
 
 
@@ -40,12 +41,13 @@ def get_smallest(number_list):
             smallest_number (int): parameter number_list 중 가장 작은 값
 
         Examples:
-            >>> number_list = [39, 54, 32, 11, 99]
-            >>> import basic_math as bm
-            >>> bm.get_smallest(number_list)
+            # >>> number_list = [39, 54, 32, 11, 99]
+            # >>> import basic_math as bm
+            # >>> bm.get_smallest(number_list)
             11
     """
-    smallest_number = None
+    smallest_number = sorted(number_list)[0]
+    # 오름차순으로 정렬 후, 가장 앞에 있는 값
     return smallest_number
 
 
@@ -61,12 +63,13 @@ def get_mean(number_list):
             mean (int): parameter number_list 숫자들의 평균
 
         Examples:
-            >>> number_list = [39, 54, 32, 11, 99]
-            >>> import basic_math as bm
-            >>> bm.get_mean(number_list)
+            # >>> number_list = [39, 54, 32, 11, 99]
+            # >>> import basic_math as bm
+            # >>> bm.get_mean(number_list)
             47
     """
-    mean = None
+    mean = sum(number_list) / len(number_list)
+    # 리스트의 평균 = 리스트의 총합 / 리스트의 개수
     return mean
 
 
@@ -82,13 +85,19 @@ def get_median(number_list):
             median (int): parameter number_list 숫자들의 중간값
 
         Examples:
-            >>> number_list = [39, 54, 32, 11, 99]
-            >>> import basic_math as bm
-            >>> bm.get_median(number_list)
+            # >>> number_list = [39, 54, 32, 11, 99]
+            # >>> import basic_math as bm
+            # >>> bm.get_median(number_list)
             39
-            >>> number_list2 = [39, 54, 32, 11, 99, 5]
-            >>> bm.get_median(number_list2)
+            # >>> number_list2 = [39, 54, 32, 11, 99, 5]
+            # >>> bm.get_median(number_list2)
             35.5
     """
-    median = None
+    # 오름차순으로 정렬 후, 중앙에 있는 값
+    number_list = sorted(number_list)
+    # 리스트의 길이가 짝수인 경우와 홀수인 경우로 나뉘기 때문에, if문을 사용한다.
+    if len(number_list)%2==0:
+        median = (number_list[len(number_list)//2 - 1] + number_list[len(number_list)//2])/2
+    else:
+        median = number_list[(len(number_list)-1) // 2]
     return median
