@@ -94,9 +94,10 @@ def get_median(number_list):
             35.5
     """
     # 오름차순으로 정렬 후, 중앙에 있는 값
+    number_list = sorted(number_list)
     # 리스트의 길이가 짝수인 경우와 홀수인 경우로 나뉘기 때문에, if문을 사용한다.
     if len(number_list)%2==0:
         median = (number_list[len(number_list)//2 - 1] + number_list[len(number_list)//2])/2
     else:
-        median = number_list[(len(number_list)-1)//2]
+        median = number_list[(len(number_list)-1) // 2]
     return median
